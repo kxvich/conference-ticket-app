@@ -12,14 +12,22 @@ $color-white: #ffffff;
 	border: 1px solid $color-secondary;
 	border-radius: 2rem;
 	padding: 1rem 2rem;
+	position: relative;
 
-	ul {
+	@media only screen and (max-width: 31.25rem) {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1rem;
+	}
+
+	&DesktopList {
 		list-style: none;
 		display: flex;
 		gap: 2rem;
 		li {
 			font-family: "JejuMyeongjo", serif;
 			font-size: 1.4rem;
+			cursor: pointer;
 		}
 
 		@media only screen and (max-width: 31.25rem) {
@@ -27,7 +35,7 @@ $color-white: #ffffff;
 		}
 	}
 
-	button {
+	&DesktopButton {
 		padding: 1rem 2rem;
 		border: none;
 		border-radius: 1rem;
@@ -40,7 +48,50 @@ $color-white: #ffffff;
 }
 
 .Menu {
+	position: absolute;
+	top: 50%;
+	right: 1rem;
+	transform: translate(-50%, -50%);
 	@media only screen and (min-width: 31.25rem) {
 		display: none;
+	}
+}
+
+.RightContainer {
+	width: 70%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	@media only screen and (max-width: 31.25rem) {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1rem;
+	}
+}
+
+.mobileNav {
+	&List {
+		list-style: none;
+		display: flex;
+		gap: 2rem;
+
+		@media only screen and (max-width: 31.25rem) {
+			flex-direction: column;
+			margin-bottom: 1rem;
+		}
+		li {
+			font-family: "JejuMyeongjo", serif;
+			font-size: 1.4rem;
+			cursor: pointer;
+		}
+	}
+
+	&Tickets {
+		padding: 1rem 2rem;
+		border: none;
+		border-radius: 1rem;
+		font-family: "JejuMyeongjo", serif;
+		
 	}
 }
