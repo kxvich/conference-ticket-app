@@ -108,7 +108,7 @@ function AttendeeDetails() {
 		} else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
 			newErrors.email = "Enter a valid email";
 		}
-		if (formData?.request.length > 200) {
+		if (formData?.request && formData.request.length > 200) {
 			newErrors.request = "Special request must be under 200 characters";
 		}
 
