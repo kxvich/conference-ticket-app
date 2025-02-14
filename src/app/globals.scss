@@ -1,0 +1,67 @@
+$color-primary: #041e23;
+$color-white: #ffffff;
+
+@font-face {
+	font-family: "Road Rage";
+	font-style: normal;
+	font-weight: 400;
+	src: url("/fonts/RoadRage-Regular.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "JejuMyeongjo";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("/fonts/JejuMyeongjo-Regular.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 100;
+	src: url("/fonts/Roboto-Light.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 400;
+	src: url("/fonts/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Alatsi";
+	font-style: normal;
+	font-weight: 400;
+	src: url("/fonts/Alatsi-Regular.ttf") format("truetype");
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: clamp(50%, 1.6vh, 75%);
+}
+
+body {
+	background-color: $color-primary;
+	height: 100vh;
+	color: $color-white;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 4rem;
+	align-items: center;
+}
+
+button {
+	cursor: pointer;
+}
+
+input{
+	color: $color-white;
+}

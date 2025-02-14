@@ -1,0 +1,205 @@
+$color-primary: #041e23;
+$color-primary-light: #08252b;
+$color-primary-light-2: #0b323a;
+$color-primary-light-3: #19768641;
+$color-secondary: #197686;
+$color-white: #ffffff;
+$color-ash: #777777;
+
+.Container {
+	border: 1px solid $color-secondary;
+	border-radius: 1rem;
+	width: 80%;
+	padding: 2rem;
+	background-color: $color-primary-light;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.topContainer {
+	width: 100%;
+	font-family: "JejuMyeongjo", serif !important;
+
+	&Content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 1rem;
+
+		h2 {
+			font-size: 1.8rem;
+			font-weight: lighter;
+			letter-spacing: 1.3px;
+		}
+	}
+}
+
+.progressBar {
+	width: 100%;
+	height: 0.3rem;
+	background-color: $color-primary-light-3;
+	border-radius: 2rem;
+	position: relative;
+}
+.innerLine {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 0.3rem;
+	background-color: $color-secondary;
+}
+
+.Main {
+	margin-bottom: 2rem;
+	&Header {
+		text-align: center;
+		margin-bottom: 3.5rem;
+		h1 {
+			margin-bottom: 1.5rem;
+			font-family: "Alatsi", serif;
+			font-size: 2rem;
+		}
+		p {
+			font-family: "roboto", serif;
+			font-size: 1.3rem;
+		}
+	}
+
+	&TicketContainer {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+	}
+
+	&TicketContent {
+		border: 1px solid $color-secondary;
+		border-radius: 1rem;
+		position: absolute;
+		top: 4%;
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 1rem;
+		width: 47%;
+		@media only screen and (min-width: 56.25rem) {
+			width: 21%;
+		}
+
+		&Header {
+			text-align: center;
+			margin-bottom: 2rem;
+
+			h2 {
+				font-family: "road rage", serif;
+				font-size: 2.2rem;
+				letter-spacing: 1.3px;
+				margin-bottom: 0.5rem;
+			}
+			p {
+				font-family: "roboto", serif;
+				font-weight: lighter;
+
+				&:not(:last-child) {
+					margin-bottom: 0.5rem;
+				}
+			}
+		}
+
+		&ImageContainer {
+			border: 2px solid $color-secondary;
+			border-radius: 1rem;
+			margin: 0 auto 2rem;
+			width: 50%;
+			height: 11rem;
+			overflow: hidden;
+		}
+
+		&Details {
+			border: 1px solid $color-secondary;
+			border-radius: 1rem;
+			padding: 1rem;
+			background-color: $color-primary-light-3;
+
+			&Group1 {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 0.5rem;
+				border-bottom: 1px solid $color-primary-light-3;
+				padding-bottom: 0.5rem;
+
+				p {
+					word-wrap: break-word;
+					font-family: "roboto", serif;
+					font-size: 1.2rem;
+
+					&:not(:last-child) {
+						color: $color-ash;
+						margin-bottom: 0.5rem;
+					}
+				}
+			}
+
+			&Group2 {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 0.5rem;
+				border-bottom: 1px solid $color-primary-light-3;
+				padding-bottom: 0.5rem;
+
+				p {
+					font-family: "roboto", serif;
+					font-size: 1.2rem;
+
+					&:not(:last-child) {
+						color: $color-ash;
+						margin-bottom: 0.5rem;
+					}
+				}
+			}
+
+			&Group3 {
+				p {
+					font-family: "roboto", serif;
+					// font-size: 1.1rem;
+
+					&:not(:last-child) {
+						color: $color-ash;
+						margin-bottom: 0.5rem;
+					}
+				}
+			}
+		}
+	}
+
+	&BarcodeContainer {
+		position: absolute;
+		bottom: 0;
+	}
+}
+
+.ButtonContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+
+	button {
+		padding: 1rem 4rem;
+		flex: 1;
+		border-radius: 1rem;
+		border: 1px solid $color-secondary;
+		background-color: $color-primary-light;
+		font-family: "JejuMyeongjo", serif !important;
+		color: $color-secondary;
+
+		&:last-child {
+			background-color: $color-secondary;
+			color: $color-white;
+		}
+	}
+}

@@ -1,0 +1,32 @@
+$color-primary: #041e23;
+$color-primary-light: #08252b;
+$color-primary-light-2: #0b323a;
+$color-secondary: #197686;
+$color-white: #ffffff;
+
+.navBar {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border: 1px solid $color-secondary;
+	border-radius: 2rem;
+	padding: 1rem 2rem;
+
+	ul {
+		list-style: none;
+		display: flex;
+		gap: 2rem;
+		li {
+			font-family: "JejuMyeongjo", serif;
+			font-size: 1.4rem;
+		}
+	}
+
+	button {
+		padding: 1rem 2rem;
+		border: none;
+		border-radius: 1rem;
+		font-family: "JejuMyeongjo", serif;
+	}
+}
