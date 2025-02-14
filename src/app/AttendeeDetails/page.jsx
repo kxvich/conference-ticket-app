@@ -5,14 +5,13 @@ import Image from "next/image";
 import { useCallback, useEffect, useReducer, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { useRouter } from "next/navigation";
-import { useAppContext } from "../contexts/AppContext";
 import LoadingSpinner from "../components/Loader";
 
 function AttendeeDetails() {
 	const router = useRouter();
 	const [preview, setPreview] = useState(() => {
 		if (typeof window !== "undefined") {
-			localStorage.getItem("imageUrl") || "";
+			return localStorage.getItem("imageUrl") || "";
 		}
 	});
 	const [formData, setFormData] = useState(() => {
@@ -20,6 +19,7 @@ function AttendeeDetails() {
 			const storedData = localStorage.getItem("formData");
 			return storedData ? JSON.parse(storedData) : {};
 		}
+		return {};
 	});
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState({});
