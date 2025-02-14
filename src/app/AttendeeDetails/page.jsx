@@ -10,9 +10,11 @@ import LoadingSpinner from "../components/Loader";
 
 function AttendeeDetails() {
 	const router = useRouter();
-	const [preview, setPreview] = useState(
-		() => localStorage.getItem("imageUrl") || ""
-	);
+	const [preview, setPreview] = useState(() => {
+		if (typeof window !== "undefined") {
+			localStorage.getItem("imageUrl") || "";
+		}
+	});
 	const [formData, setFormData] = useState(() => {
 		if (typeof window !== "undefined") {
 			const storedData = localStorage.getItem("formData");
@@ -47,7 +49,9 @@ function AttendeeDetails() {
 
 	useEffect(() => {
 		if (preview) {
-			localStorage.setItem("imageUrl", preview);
+			if (typeof window !== "undefined") {
+				localStorage.setItem("imageUrl", preview);
+			}
 		}
 	}, [preview]);
 
@@ -133,6 +137,14 @@ function AttendeeDetails() {
 					<div className={styles.dropZone}>
 						<div
 							{...getRootProps()}
+							role="button"
+							tabIndex="0"
+							onKeyDown={(e) => {
+								if (e.key === "Enter" || e.key === " ") {
+									e.preventDefault();
+									document.getElementById("preview").click();
+								}
+							}}
 							style={{
 								backgroundImage: `url(${preview})`,
 								backgroundSize: "cover",
@@ -209,9 +221,16 @@ function AttendeeDetails() {
 								type="text"
 								name="name"
 								id="name"
+								aria-describedby={error.name ? "name-error" : undefined}
 							/>
 							{error.name && (
-								<p style={{ color: "red", fontSize: "1.5rem" }}>{error.name}</p>
+								<p
+									id="name-error"
+									aria-live="polite"
+									style={{ color: "red", fontSize: "1.5rem" }}
+								>
+									{error.name}
+								</p>
 							)}
 						</div>
 						<div className={styles.formGroup}>
@@ -223,9 +242,14 @@ function AttendeeDetails() {
 								type="email"
 								placeholder="hello@gmail.com"
 								id="email"
+								aria-describedby={error.email ? "email-error" : undefined}
 							/>
 							{error.email && (
-								<p style={{ color: "red", fontSize: "1.5rem" }}>
+								<p
+									id="name-error"
+									aria-live="polite"
+									style={{ color: "red", fontSize: "1.5rem" }}
+								>
 									{error.email}
 								</p>
 							)}
@@ -239,9 +263,14 @@ function AttendeeDetails() {
 								type="text"
 								name="request"
 								id="request"
+								aria-describedby={error.request ? "request-error" : undefined}
 							/>
 							{error.request && (
-								<p style={{ color: "red", fontSize: "1.5rem" }}>
+								<p
+									id="name-error"
+									aria-live="polite"
+									style={{ color: "red", fontSize: "1.5rem" }}
+								>
 									{error.request}
 								</p>
 							)}
@@ -250,7 +279,12 @@ function AttendeeDetails() {
 				</div>
 				<div className={styles.MainButtonContainer}>
 					<button onClick={() => router.back()}>Back</button>
-					<button onClick={handleSubmit}>Get My Free Ticket</button>
+					<button
+						onClick={handleSubmit}
+						onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+					>
+						Get My Free Ticket
+					</button>
 				</div>
 			</div>
 		</div>
