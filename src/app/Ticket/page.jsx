@@ -54,7 +54,7 @@ function Ticket() {
 				<div className={styles.MainTicketContainer}>
 					<Image
 						src={"/bg.svg"}
-						width={isMobile ? 600 : 520}
+						width={isMobile ? 590 : 520}
 						height={isMobile ? 650 : 520}
 						alt="ticketContainer"
 					/>
@@ -65,7 +65,13 @@ function Ticket() {
 							<p>📅 March 15, 2025 | 7:00 PM </p>
 						</div>
 						<div className={styles.MainTicketContentImageContainer}>
-							<Image src={imageUrl} width={100} height={110} alt="userImage" />
+							<Image
+								style={{ objectFit: "cover", width: "100%", height: "100%" }}
+								src={imageUrl}
+								width={176}
+								height={176}
+								alt="userImage"
+							/>
 						</div>
 						<div className={styles.MainTicketContentDetails}>
 							<div className={styles.MainTicketContentDetailsGroup1}>
