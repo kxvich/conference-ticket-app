@@ -13,6 +13,7 @@ function AttendeeDetails() {
 		if (typeof window !== "undefined") {
 			return localStorage.getItem("imageUrl") || "";
 		}
+		return "";
 	});
 	const [formData, setFormData] = useState(() => {
 		if (typeof window !== "undefined") {
@@ -96,13 +97,13 @@ function AttendeeDetails() {
 	function handleValidation() {
 		let newErrors = {};
 
-		if (!preview || preview.trim() === "") {
+		if (!preview?.trim()) {
 			newErrors.preview = "image is required";
 		}
-		if (!formData?.name.trim()) {
+		if (!formData?.name || !formData.name.trim()) {
 			newErrors.name = "Name is required";
 		}
-		if (!formData?.email.trim()) {
+		if (!formData?.email || !formData.email.trim()) {
 			newErrors.email = "Email is required";
 		} else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
 			newErrors.email = "Enter a valid email";
