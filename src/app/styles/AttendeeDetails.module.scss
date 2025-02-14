@@ -178,7 +178,7 @@ $color-white: #ffffff;
 		}
 
 		&:focus {
-			outline: none;
+			outline: 1.2px solid $color-secondary;
 		}
 
 		&:hover {

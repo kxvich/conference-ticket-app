@@ -13,6 +13,7 @@ export function AppProvider({ children }) {
 	const [ticketNumber, setTicketNumber] = useState(1);
 	const [progressBar, setProgressBar] = useState(1);
 	const [currentPage, setCurrentPage] = useState("ticketSelection");
+	const [isOpen, setIsOpen] = useState(false);
 
 	return (
 		<AppContext.Provider
@@ -25,6 +26,8 @@ export function AppProvider({ children }) {
 				setProgressBar,
 				currentPage,
 				setCurrentPage,
+				isOpen,
+				setIsOpen,
 			}}
 		>
 			{children}

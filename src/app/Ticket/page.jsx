@@ -4,6 +4,7 @@ import styles from "@/app/styles/Ticket.module.scss";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import useMediaQuery from "@/app/Hooks/useMediaQuery";
+import LoadingSpinner from "../components/Loader";
 
 function Ticket() {
 	const [formData, setFormData] = useState(() => {
@@ -65,13 +66,27 @@ function Ticket() {
 							<p>📅 March 15, 2025 | 7:00 PM </p>
 						</div>
 						<div className={styles.MainTicketContentImageContainer}>
-							<Image
-								style={{ objectFit: "cover", width: "100%", height: "100%" }}
-								src={imageUrl}
-								width={176}
-								height={176}
-								alt="userImage"
-							/>
+							{imageUrl ? (
+								<Image
+									style={{ objectFit: "cover", width: "100%", height: "100%" }}
+									src={imageUrl}
+									width={176}
+									height={176}
+									alt="userImage"
+								/>
+							) : (
+								<div
+									style={{
+										display: "flex",
+										justifyContent: "center",
+										alignItems: "center",
+										width: "100%",
+										height: "100%",
+									}}
+								>
+									<LoadingSpinner />
+								</div>
+							)}
 						</div>
 						<div className={styles.MainTicketContentDetails}>
 							<div className={styles.MainTicketContentDetailsGroup1}>
