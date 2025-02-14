@@ -174,7 +174,7 @@ function AttendeeDetails() {
 							{!preview || isHovered ? (
 								<Image
 									style={{ zIndex: "1" }}
-									src={"/cloud-arrow-down-solid.svg"}
+									src={"/cloud-download.svg"}
 									height={50}
 									width={50}
 									alt="cloudimage"
@@ -211,6 +211,7 @@ function AttendeeDetails() {
 						{preview && <button onClick={removeImage}>remove image</button>}
 					</div>
 				</div>
+				<div className={styles.MainLine}></div>
 				<div className={styles.mainContentCenter}>
 					<form action="">
 						<div className={styles.formGroup}>
