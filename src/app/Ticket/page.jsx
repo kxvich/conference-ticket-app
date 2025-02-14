@@ -2,8 +2,8 @@
 
 import styles from "@/app/styles/Ticket.module.scss";
 import Image from "next/image";
-import { useAppContext } from "../contexts/AppContext";
 import { useEffect, useState } from "react";
+import useMediaQuery from "@/app/Hooks/useMediaQuery";
 
 function Ticket() {
 	const [formData, setFormData] = useState(() => {
@@ -27,6 +27,7 @@ function Ticket() {
 		}
 	});
 	const [imageUrl, setImageUrl] = useState("");
+	const isMobile = useMediaQuery("(max-width: 31.25rem)");
 
 	useEffect(() => {
 		if (typeof window !== "undefined") {
@@ -53,8 +54,8 @@ function Ticket() {
 				<div className={styles.MainTicketContainer}>
 					<Image
 						src={"/bg.svg"}
-						width={520}
-						height={520}
+						width={isMobile ? 600 : 520}
+						height={isMobile ? 600 : 520}
 						alt="ticketContainer"
 					/>
 					<div className={styles.MainTicketContent}>
@@ -64,7 +65,14 @@ function Ticket() {
 							<p>📅 March 15, 2025 | 7:00 PM </p>
 						</div>
 						<div className={styles.MainTicketContentImageContainer}>
-							<Image src={imageUrl} width={100} height={110} alt="userImage" />
+							<Image
+								style={{ objectFit: "cover" }}
+								src={imageUrl}
+								width={100}
+								height={110}
+								
+								alt="userImage"
+							/>
 						</div>
 						<div className={styles.MainTicketContentDetails}>
 							<div className={styles.MainTicketContentDetailsGroup1}>
@@ -106,7 +114,7 @@ function Ticket() {
 					<div className={styles.MainBarcodeContainer}>
 						<Image
 							src={"/barCode.svg"}
-							width={200}
+							width={ 200}
 							height={100}
 							alt="barcode"
 						/>
