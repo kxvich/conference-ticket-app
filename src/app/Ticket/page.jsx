@@ -15,19 +15,24 @@ function Ticket() {
 	});
 
 	const [ticketType, setTicketType] = useState(() => {
-		if (typeof window !== undefined) {
+		if (typeof window !== "undefined") {
 			const storedData = localStorage.getItem("ticketType");
 			return storedData || "Regular";
 		}
 	});
 	const [ticketNumber, setTicketNumber] = useState(() => {
-		if (typeof window !== undefined) {
+		if (typeof window !== "undefined") {
 			const storedData = localStorage.getItem("ticketNumber");
 			return storedData || "1";
 		}
 	});
-	const imageUrl =
-		typeof window !== "undefined" ? localStorage.getItem("imageUrl") : "";
+	const [imageUrl, setImageUrl] = useState("");
+
+	useEffect(() => {
+		if (typeof window !== "undefined") {
+			setImageUrl(localStorage.getItem("imageUrl") || "");
+		}
+	}, []);
 
 	return (
 		<div className={styles.Container}>
