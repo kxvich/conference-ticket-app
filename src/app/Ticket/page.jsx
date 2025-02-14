@@ -26,7 +26,8 @@ function Ticket() {
 			return storedData || "1";
 		}
 	});
-	const imageUrl = typeof window !== "undefined" ? localStorage.getItem("imageUrl") : "";
+	const imageUrl =
+		typeof window !== "undefined" ? localStorage.getItem("imageUrl") : "";
 
 	return (
 		<div className={styles.Container}>
