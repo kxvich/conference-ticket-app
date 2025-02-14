@@ -12,6 +12,10 @@ function NavBar() {
 				<Image src={"/ticklogo.png"} width={50} height={20} alt="logo-image" />
 			</div>
 
+			<div className={styles.Menu}>
+				<Image src={"/bars-solid.svg"} width={30} height={30} alt="menu" />
+			</div>
+
 			<ul>
 				<li>Events</li>
 				<li>My Tickets</li>

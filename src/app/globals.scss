@@ -56,12 +56,15 @@ body {
 	flex-direction: column;
 	gap: 4rem;
 	align-items: center;
+	@media only screen and (max-width: 31.25rem) {
+		// padding: 2rem 1rem;
+	}
 }
 
 button {
 	cursor: pointer;
 }
 
-input{
+input {
 	color: $color-white;
 }
