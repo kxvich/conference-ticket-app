@@ -84,10 +84,13 @@ function AttendeeDetails() {
 
 	function handleChange(e) {
 		const { name, value } = e.target;
-		setFormData((formData) => ({ ...formData, [name]: value }));
-		if (typeof window !== "undefined") {
-			localStorage.setItem("formData", JSON.stringify(formData));
-		}
+		setFormData((prevFormData) => {
+			const updatedData = { ...prevFormData, [name]: value };
+			if (typeof window !== "undefined") {
+				localStorage.setItem("formData", JSON.stringify(updatedData));
+			}
+			return updatedData;
+		});
 	}
 
 	function handleValidation() {
@@ -96,15 +99,15 @@ function AttendeeDetails() {
 		if (!preview || preview.trim() === "") {
 			newErrors.preview = "image is required";
 		}
-		if (!formData.name.trim()) {
+		if (!formData?.name.trim()) {
 			newErrors.name = "Name is required";
 		}
-		if (!formData.email.trim()) {
+		if (!formData?.email.trim()) {
 			newErrors.email = "Email is required";
 		} else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
 			newErrors.email = "Enter a valid email";
 		}
-		if (formData.request.length > 200) {
+		if (formData?.request.length > 200) {
 			newErrors.request = "Special request must be under 200 characters";
 		}
 
@@ -203,7 +206,11 @@ function AttendeeDetails() {
 							<p
 								id="preview-error"
 								aria-live="polite"
-								style={{ color: "red", fontSize: "1.5rem",fontFamily: "roboto, serif", }}
+								style={{
+									color: "red",
+									fontSize: "1.5rem",
+									fontFamily: "roboto, serif",
+								}}
 							>
 								{error.preview}
 							</p>
@@ -253,7 +260,11 @@ function AttendeeDetails() {
 								<p
 									id="name-error"
 									aria-live="polite"
-									style={{ color: "red", fontSize: "1.5rem",fontFamily: "roboto, serif", }}
+									style={{
+										color: "red",
+										fontSize: "1.5rem",
+										fontFamily: "roboto, serif",
+									}}
 								>
 									{error.email}
 								</p>
@@ -274,7 +285,11 @@ function AttendeeDetails() {
 								<p
 									id="name-error"
 									aria-live="polite"
-									style={{ color: "red", fontSize: "1.5rem",fontFamily: "roboto, serif", }}
+									style={{
+										color: "red",
+										fontSize: "1.5rem",
+										fontFamily: "roboto, serif",
+									}}
 								>
 									{error.request}
 								</p>
